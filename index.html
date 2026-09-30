@@ -12,3 +12,320 @@
     box-sizing:border-box;
   }
   
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#080808,#181818,#2b0b12);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+/* Estrellitas */
+
+.estrella{
+    position:absolute;
+    color:white;
+    animation:flotar 4s infinite ease-in-out;
+    opacity:.7;
+}
+
+@keyframes flotar{
+    0%,100%{transform:translateY(0);opacity:.3;}
+    50%{transform:translateY(-20px);opacity:1;}
+}
+
+/* Contenedor */
+
+.contenedor{
+    text-align:center;
+    width:100%;
+    max-width:700px;
+    padding:20px;
+}
+
+h1{
+    font-size:clamp(28px,7vw,55px);
+    margin-bottom:30px;
+    color:#ff5577;
+    text-shadow:0 0 15px #ff1744;
+}
+
+/* RAMO */
+
+.ramo{
+    position:relative;
+    width:340px;
+    height:430px;
+    margin:auto;
+}
+
+/* Tallos */
+
+.tallo{
+    position:absolute;
+    width:7px;
+    height:210px;
+    background:linear-gradient(to right,#174d25,#42a85f);
+    bottom:55px;
+    left:50%;
+    transform-origin:bottom;
+    border-radius:10px;
+}
+
+.t1{transform:rotate(-28deg);}
+.t2{transform:rotate(-14deg);}
+.t3{transform:rotate(0deg);}
+.t4{transform:rotate(14deg);}
+.t5{transform:rotate(28deg);}
+
+/* Hot Wheels */
+
+.carro{
+    position:absolute;
+    width:125px;
+    height:55px;
+    background:linear-gradient(135deg,#ff1744,#8b001b);
+    border-radius:35px 45px 12px 12px;
+    box-shadow:0 0 18px rgba(255,30,70,.8);
+    transform:rotate(-8deg);
+    animation:entrada .8s ease forwards;
+}
+
+.carro::before{
+    content:"";
+    position:absolute;
+    width:55px;
+    height:27px;
+    background:#111;
+    top:-15px;
+    left:35px;
+    border-radius:20px 20px 5px 5px;
+}
+
+.carro::after{
+    content:"HOT WHEELS";
+    position:absolute;
+    color:white;
+    font-size:9px;
+    font-weight:bold;
+    top:23px;
+    left:28px;
+    transform:rotate(-3deg);
+}
+
+.rueda{
+    position:absolute;
+    width:23px;
+    height:23px;
+    background:#050505;
+    border:4px solid #777;
+    border-radius:50%;
+    bottom:-10px;
+}
+
+.rueda1{left:18px;}
+.rueda2{right:18px;}
+
+.c1{top:10px;left:108px;transform:rotate(-20deg);}
+.c2{top:55px;left:32px;transform:rotate(-35deg);}
+.c3{top:5px;left:105px;transform:rotate(20deg);}
+.c4{top:55px;right:30px;transform:rotate(35deg);}
+.c5{top:105px;left:108px;transform:rotate(0deg);}
+
+/* Envoltura */
+
+.envoltura{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:220px;
+    height:150px;
+    background:linear-gradient(135deg,#222,#555);
+    clip-path:polygon(10% 0,90% 0,70% 100%,30% 100%);
+    box-shadow:0 0 20px #000;
+}
+
+/* Moño */
+
+.mono{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90px;
+    height:35px;
+}
+
+.mono::before,
+.mono::after{
+    content:"";
+    position:absolute;
+    width:50px;
+    height:35px;
+    background:#ff1744;
+    border-radius:50%;
+}
+
+.mono::before{
+    left:0;
+    transform:rotate(20deg);
+}
+
+.mono::after{
+    right:0;
+    transform:rotate(-20deg);
+}
+
+/* Botón */
+
+button{
+    margin-top:20px;
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff1744;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff1744;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+/* Carta */
+
+.carta{
+    display:none;
+    margin:25px auto 0;
+    max-width:500px;
+    background:rgba(255,255,255,.08);
+    padding:25px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(8px);
+    animation:aparecer .8s ease;
+}
+
+.carta h2{
+    color:#ff5577;
+    margin-bottom:12px;
+}
+
+.carta p{
+    line-height:1.6;
+    font-size:16px;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:scale(0) rotate(90deg);
+    }
+    to{
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="estrella" style="top:10%;left:15%;">✦</div>
+<div class="estrella" style="top:25%;right:15%;">✧</div>
+<div class="estrella" style="bottom:20%;left:10%;">✦</div>
+<div class="estrella" style="bottom:15%;right:12%;">✧</div>
+
+<div class="contenedor">
+
+<h1>Para Fersito</h1>
+
+<div class="ramo">
+
+    <div class="tallo t1"></div>
+    <div class="tallo t2"></div>
+    <div class="tallo t3"></div>
+    <div class="tallo t4"></div>
+    <div class="tallo t5"></div>
+
+    <div class="carro c1">
+        <div class="rueda rueda1"></div>
+        <div class="rueda rueda2"></div>
+    </div>
+
+    <div class="carro c2">
+        <div class="rueda rueda1"></div>
+        <div class="rueda rueda2"></div>
+    </div>
+
+    <div class="carro c3">
+        <div class="rueda rueda1"></div>
+        <div class="rueda rueda2"></div>
+    </div>
+
+    <div class="carro c4">
+        <div class="rueda rueda1"></div>
+        <div class="rueda rueda2"></div>
+    </div>
+
+    <div class="carro c5">
+        <div class="rueda rueda1"></div>
+        <div class="rueda rueda2"></div>
+    </div>
+
+    <div class="envoltura"></div>
+    <div class="mono"></div>
+
+</div>
+
+<button onclick="abrirCarta()">🏎️ Abrir mi regalo</button>
+
+<div class="carta" id="carta">
+
+    <h2>Para ti mi niño ♡</h2>
+
+    <p>
+        No sabía cómo regalarte carritos...
+        así que pensé:
+        ¿por qué no hacerlos a mi manera? 
+        <br><br>
+No importa la distancia, ni las barreras que nos ponga el camino, tu nunca vas a ser espectador ♡
+        <br><br>
+        Espero que te guste este pequeño regalo, el próximo año prometo darte uno en persona  ₍ᐢ..ᐢ₎♡ 
+    </p>
+
+</div>
+
+</div>
+
+<script>
+
+function abrirCarta(){
+
+    document.getElementById("carta").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
