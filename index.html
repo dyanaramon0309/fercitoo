@@ -1,248 +1,446 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-      content="witdh=device-width, initial-scale=1.0">
-<title>Para Fer</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Fer 💗</title>
+
 <style>
-  *{
+
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
-  }
-  
+}
+
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#080808,#181818,#2b0b12);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+    background:
+        radial-gradient(circle at top,#263b63 0%,#10131c 45%,#050609 100%);
     font-family:Arial,sans-serif;
     color:white;
+    overflow-x:hidden;
 }
 
-/* Estrellitas */
+/* ESTRELLAS */
 
 .estrella{
-    position:absolute;
+    position:fixed;
     color:white;
-    animation:flotar 4s infinite ease-in-out;
+    font-size:22px;
     opacity:.7;
+    animation:brillar 2.5s infinite ease-in-out;
 }
 
-@keyframes flotar{
-    0%,100%{transform:translateY(0);opacity:.3;}
-    50%{transform:translateY(-20px);opacity:1;}
+.e1{top:8%;left:10%;}
+.e2{top:18%;right:12%;animation-delay:.5s;}
+.e3{top:45%;left:5%;animation-delay:1s;}
+.e4{bottom:20%;right:8%;animation-delay:1.5s;}
+.e5{bottom:10%;left:18%;animation-delay:.8s;}
+.e6{top:30%;right:25%;animation-delay:1.2s;}
+
+@keyframes brillar{
+    0%,100%{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.3);
+    }
 }
 
-/* Contenedor */
+/* CONTENEDOR */
 
 .contenedor{
-    text-align:center;
     width:100%;
-    max-width:700px;
-    padding:20px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:35px 15px;
 }
 
-h1{
-    font-size:clamp(28px,7vw,55px);
-    margin-bottom:30px;
-    color:#ff5577;
-    text-shadow:0 0 15px #ff1744;
+.titulo{
+    text-align:center;
+    font-size:clamp(30px,8vw,55px);
+    color:#ff4d6d;
+    text-shadow:
+        0 0 8px #ff1744,
+        0 0 25px #ff1744;
+    margin-bottom:5px;
+}
+
+.subtitulo{
+    color:#ddd;
+    font-size:15px;
+    margin-bottom:15px;
 }
 
 /* RAMO */
 
 .ramo{
     position:relative;
-    width:340px;
-    height:430px;
-    margin:auto;
+    width:370px;
+    max-width:95vw;
+    height:540px;
+    margin-top:5px;
 }
 
-/* Tallos */
+/* TALLOS */
 
 .tallo{
     position:absolute;
-    width:7px;
-    height:210px;
-    background:linear-gradient(to right,#174d25,#42a85f);
-    bottom:55px;
+    width:8px;
+    height:285px;
+    background:linear-gradient(
+        to right,
+        #174d2b,
+        #53a866,
+        #174d2b
+    );
+
+    bottom:80px;
     left:50%;
     transform-origin:bottom;
     border-radius:10px;
+    z-index:1;
 }
 
-.t1{transform:rotate(-28deg);}
-.t2{transform:rotate(-14deg);}
-.t3{transform:rotate(0deg);}
-.t4{transform:rotate(14deg);}
-.t5{transform:rotate(28deg);}
+.t1{
+    transform:rotate(-30deg);
+}
 
-/* Hot Wheels */
+.t2{
+    transform:rotate(-15deg);
+}
+
+.t3{
+    transform:rotate(0deg);
+}
+
+.t4{
+    transform:rotate(15deg);
+}
+
+.t5{
+    transform:rotate(30deg);
+}
+
+/* HOJAS */
+
+.hoja{
+    position:absolute;
+    width:55px;
+    height:25px;
+    background:#31864c;
+    border-radius:100% 0 100% 0;
+    z-index:2;
+}
+
+.h1{
+    bottom:205px;
+    left:67px;
+    transform:rotate(-30deg);
+}
+
+.h2{
+    bottom:160px;
+    left:95px;
+    transform:rotate(25deg);
+}
+
+.h3{
+    bottom:190px;
+    right:65px;
+    transform:rotate(30deg);
+}
+
+.h4{
+    bottom:145px;
+    right:90px;
+    transform:rotate(-25deg);
+}
+
+/* CARROS */
 
 .carro{
     position:absolute;
-    width:125px;
-    height:55px;
-    background:linear-gradient(135deg,#ff1744,#8b001b);
-    border-radius:35px 45px 12px 12px;
-    box-shadow:0 0 18px rgba(255,30,70,.8);
-    transform:rotate(-8deg);
-    animation:entrada .8s ease forwards;
+    width:175px;
+    height:105px;
+    object-fit:contain;
+    object-position:center;
+    mix-blend-mode:multiply;
+    filter:
+        drop-shadow(0 7px 5px rgba(0,0,0,.5));
+
+    z-index:5;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+
+    animation:aparecer .8s ease backwards;
 }
 
-.carro::before{
-    content:"";
-    position:absolute;
-    width:55px;
-    height:27px;
-    background:#111;
-    top:-15px;
-    left:35px;
-    border-radius:20px 20px 5px 5px;
+.carro:hover{
+    filter:
+        drop-shadow(0 0 15px rgba(255,255,255,.8));
+
+    z-index:20;
 }
 
-.carro::after{
-    content:"HOT WHEELS";
-    position:absolute;
-    color:white;
-    font-size:9px;
-    font-weight:bold;
-    top:23px;
-    left:28px;
-    transform:rotate(-3deg);
+/* POSICIONES */
+
+.c1{
+    top:15px;
+    left:100px;
+    transform:rotate(-12deg);
+    animation-delay:.1s;
 }
 
-.rueda{
-    position:absolute;
-    width:23px;
-    height:23px;
-    background:#050505;
-    border:4px solid #777;
-    border-radius:50%;
-    bottom:-10px;
+.c2{
+    top:80px;
+    left:10px;
+    transform:rotate(-25deg);
+    animation-delay:.3s;
 }
 
-.rueda1{left:18px;}
-.rueda2{right:18px;}
+.c3{
+    top:80px;
+    right:5px;
+    transform:rotate(22deg);
+    animation-delay:.5s;
+}
 
-.c1{top:10px;left:108px;transform:rotate(-20deg);}
-.c2{top:55px;left:32px;transform:rotate(-35deg);}
-.c3{top:5px;left:105px;transform:rotate(20deg);}
-.c4{top:55px;right:30px;transform:rotate(35deg);}
-.c5{top:105px;left:108px;transform:rotate(0deg);}
+.c4{
+    top:150px;
+    left:100px;
+    transform:rotate(4deg);
+    animation-delay:.7s;
+}
 
-/* Envoltura */
+.c5{
+    top:160px;
+    right:15px;
+    transform:rotate(30deg);
+    animation-delay:.9s;
+}
+
+/* ENVOLTURA */
 
 .envoltura{
     position:absolute;
     bottom:0;
     left:50%;
     transform:translateX(-50%);
-    width:220px;
-    height:150px;
-    background:linear-gradient(135deg,#222,#555);
-    clip-path:polygon(10% 0,90% 0,70% 100%,30% 100%);
-    box-shadow:0 0 20px #000;
+
+    width:260px;
+    height:190px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b1b1b,
+            #444,
+            #151515
+        );
+
+    clip-path:polygon(
+        5% 0,
+        95% 0,
+        72% 100%,
+        28% 100%
+    );
+
+    z-index:10;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.6);
 }
 
-/* Moño */
+/* LINEAS DE LA ENVOLTURA */
+
+.envoltura::before{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:190px;
+    background:#777;
+    left:50%;
+    transform:rotate(10deg);
+    opacity:.4;
+}
+
+.envoltura::after{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:190px;
+    background:#777;
+    left:50%;
+    transform:rotate(-10deg);
+    opacity:.4;
+}
+
+/* MOÑO */
 
 .mono{
     position:absolute;
-    bottom:35px;
+    bottom:42px;
     left:50%;
     transform:translateX(-50%);
-    width:90px;
-    height:35px;
+    width:105px;
+    height:55px;
+    z-index:15;
 }
 
-.mono::before,
-.mono::after{
-    content:"";
+.mono .izq,
+.mono .der{
     position:absolute;
-    width:50px;
-    height:35px;
-    background:#ff1744;
-    border-radius:50%;
+    width:60px;
+    height:45px;
+    background:#e91e45;
+    box-shadow:0 0 10px rgba(255,0,60,.5);
 }
 
-.mono::before{
+.mono .izq{
     left:0;
-    transform:rotate(20deg);
+    border-radius:70% 20% 70% 20%;
+    transform:rotate(15deg);
 }
 
-.mono::after{
+.mono .der{
     right:0;
-    transform:rotate(-20deg);
+    border-radius:20% 70% 20% 70%;
+    transform:rotate(-15deg);
 }
 
-/* Botón */
+.mono .centro{
+    position:absolute;
+    width:28px;
+    height:28px;
+    background:#ff355c;
+    border-radius:50%;
+    left:38px;
+    top:8px;
+}
 
-button{
-    margin-top:20px;
-    padding:14px 28px;
+/* BOTON */
+
+.boton{
+    margin-top:-5px;
+
     border:none;
     border-radius:30px;
+
+    padding:15px 30px;
+
     background:#ff1744;
     color:white;
+
     font-size:17px;
     font-weight:bold;
+
     cursor:pointer;
-    box-shadow:0 0 20px #ff1744;
+
+    box-shadow:
+        0 0 10px #ff1744,
+        0 0 25px rgba(255,23,68,.5);
+
     transition:.3s;
 }
 
-button:hover{
+.boton:hover{
     transform:scale(1.08);
 }
 
-/* Carta */
+/* CARTA */
 
 .carta{
     display:none;
-    margin:25px auto 0;
-    max-width:500px;
-    background:rgba(255,255,255,.08);
-    padding:25px;
-    border-radius:20px;
+
+    width:90%;
+    max-width:550px;
+
+    margin-top:25px;
+
+    padding:28px;
+
+    background:rgba(255,255,255,.09);
+
     border:1px solid rgba(255,255,255,.2);
-    backdrop-filter:blur(8px);
-    animation:aparecer .8s ease;
+
+    border-radius:22px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.4);
+
+    text-align:center;
+
+    animation:subir .7s ease;
 }
 
 .carta h2{
     color:#ff5577;
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
 .carta p{
-    line-height:1.6;
+    line-height:1.7;
+    color:#eee;
     font-size:16px;
 }
 
 @keyframes aparecer{
+
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:scale(.3);
     }
+
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes subir{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-@keyframes entrada{
-    from{
-        opacity:0;
-        transform:scale(0) rotate(90deg);
+/* CELULAR */
+
+@media(max-width:500px){
+
+    .ramo{
+        height:500px;
+        transform:scale(.9);
+        margin-top:-10px;
+        margin-bottom:-20px;
     }
-    to{
-        opacity:1;
+
+    .carro{
+        width:155px;
+        height:95px;
     }
+
+    .titulo{
+        margin-top:10px;
+    }
+
 }
 
 </style>
@@ -250,78 +448,145 @@ button:hover{
 
 <body>
 
-<div class="estrella" style="top:10%;left:15%;">✦</div>
-<div class="estrella" style="top:25%;right:15%;">✧</div>
-<div class="estrella" style="bottom:20%;left:10%;">✦</div>
-<div class="estrella" style="bottom:15%;right:12%;">✧</div>
+<!-- ESTRELLAS -->
+
+<div class="estrella e1">✦</div>
+<div class="estrella e2">✧</div>
+<div class="estrella e3">✦</div>
+<div class="estrella e4">✧</div>
+<div class="estrella e5">✦</div>
+<div class="estrella e6">✧</div>
+
 
 <div class="contenedor">
 
-<h1>Para Fersito</h1>
+    <h1 class="titulo">
+        Para Fer ❤️
+    </h1>
 
-<div class="ramo">
-
-    <div class="tallo t1"></div>
-    <div class="tallo t2"></div>
-    <div class="tallo t3"></div>
-    <div class="tallo t4"></div>
-    <div class="tallo t5"></div>
-
-    <div class="carro c1">
-        <div class="rueda rueda1"></div>
-        <div class="rueda rueda2"></div>
-    </div>
-
-    <div class="carro c2">
-        <div class="rueda rueda1"></div>
-        <div class="rueda rueda2"></div>
-    </div>
-
-    <div class="carro c3">
-        <div class="rueda rueda1"></div>
-        <div class="rueda rueda2"></div>
-    </div>
-
-    <div class="carro c4">
-        <div class="rueda rueda1"></div>
-        <div class="rueda rueda2"></div>
-    </div>
-
-    <div class="carro c5">
-        <div class="rueda rueda1"></div>
-        <div class="rueda rueda2"></div>
-    </div>
-
-    <div class="envoltura"></div>
-    <div class="mono"></div>
-
-</div>
-
-<button onclick="abrirCarta()">🏎️ Abrir mi regalo</button>
-
-<div class="carta" id="carta">
-
-    <h2>Para ti mi niño ♡</h2>
-
-    <p>
-        No sabía cómo regalarte carritos...
-        así que pensé:
-        ¿por qué no hacerlos a mi manera? 
-        <br><br>
-No importa la distancia, ni las barreras que nos ponga el camino, tu nunca vas a ser espectador ♡
-        <br><br>
-        Espero que te guste este pequeño regalo, el próximo año prometo darte uno en persona  ₍ᐢ..ᐢ₎♡ 
+    <p class="subtitulo">
+        Un ramo un poquito diferente... 🏎️
     </p>
 
-</div>
+
+    <!-- RAMO -->
+
+    <div class="ramo">
+
+        <!-- TALLOS -->
+
+        <div class="tallo t1"></div>
+        <div class="tallo t2"></div>
+        <div class="tallo t3"></div>
+        <div class="tallo t4"></div>
+        <div class="tallo t5"></div>
+
+
+        <!-- HOJAS -->
+
+        <div class="hoja h1"></div>
+        <div class="hoja h2"></div>
+        <div class="hoja h3"></div>
+        <div class="hoja h4"></div>
+
+
+        <!-- HOT WHEELS -->
+
+        <img
+            src="mclaren_p1.jpg"
+            class="carro c1"
+            alt="McLaren P1">
+
+        <img
+            src="porsche_911_gt3.jpg"
+            class="carro c2"
+            alt="Porsche 911 GT3">
+
+        <img
+            src="mclaren_720s.jpg"
+            class="carro c3"
+            alt="McLaren 720S">
+
+        <img
+            src="toyota_supra.jpg"
+            class="carro c4"
+            alt="Toyota Supra">
+
+        <img
+            src="dodge_charger.jpg"
+            class="carro c5"
+            alt="Dodge Charger R/T">
+
+
+        <!-- ENVOLTURA -->
+
+        <div class="envoltura"></div>
+
+
+        <!-- MOÑO -->
+
+        <div class="mono">
+
+            <div class="izq"></div>
+            <div class="der"></div>
+            <div class="centro"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTÓN -->
+
+    <button
+        class="boton"
+        onclick="abrirCarta()">
+
+        🏎️ Abrir mi regalo
+
+    </button>
+
+
+    <!-- CARTA -->
+
+    <div
+        class="carta"
+        id="carta">
+
+        <h2>
+            Para ti, Fer 💗
+        </h2>
+
+        <p>
+    No importa la distancia, ni las barreras que nos ponga el camino, tu nunca vas a ser espectador ♡
+        <br><br>
+        Espero que te guste este pequeño regalo, el próximo año prometo darte uno en persona  ₍ᐢ..ᐢ₎♡
+        </p>
+
+    </div>
 
 </div>
+
 
 <script>
 
 function abrirCarta(){
 
-    document.getElementById("carta").style.display="block";
+    const carta = document.getElementById("carta");
+
+    if(carta.style.display === "block"){
+
+        carta.style.display = "none";
+
+    }else{
+
+        carta.style.display = "block";
+
+        carta.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
 
 }
 
